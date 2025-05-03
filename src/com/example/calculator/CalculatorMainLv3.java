@@ -18,16 +18,16 @@ public class CalculatorMainLv3 {
         boolean cont = true;
         do {
             System.out.print("fist number : ");
-            int num1 = Integer.parseInt(bf.readLine());
+            double num1 = Double.parseDouble(bf.readLine());
 
             System.out.print("operator : ");
             char operator = bf.readLine().charAt(0);
 
             System.out.print("second number : ");
-            int num2 = Integer.parseInt(bf.readLine());
+            double num2 = Double.parseDouble(bf.readLine());
 
 
-            System.out.printf("%d %c %d = %d%n", num1, operator, num2, calculatorLv3.calculate(num1, num2, operator));
+            System.out.printf("%.2f %c %.2f = %.2f%n", num1, operator, num2, calculatorLv3.calculate(num1, num2, operator));
 
             if (calculatorLv3.getHistory().size() > MAX_MEMORY) {
                 calculatorLv3.popHistory();

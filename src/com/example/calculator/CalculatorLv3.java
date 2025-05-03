@@ -26,28 +26,18 @@ public class CalculatorLv3<T extends Number> {
     public double calculate(T num1, T num2, char opr) {
         double operand1 = num1.doubleValue();
         double operand2 = num2.doubleValue();
-        OperatorType operator = OperatorType.valueOf(String.valueOf(opr));
-        double result;
-
-        switch (operator) {
-            case ADD:
-                result = operand1 + operand2;
-                break;
-            case SUBTRACT:
-                result = operand1 - operand2;
-                break;
-            case MULTIPLY:
-                result = operand1 * operand2;
-                break;
-            case DIVIDE:
+        OperatorType operator = OperatorType.fromChar(opr);
+        double result = switch (operator) {
+            case ADD -> operand1 + operand2;
+            case SUBTRACT -> operand1 - operand2;
+            case MULTIPLY -> operand1 * operand2;
+            case DIVIDE -> {
                 if (operand2 == 0.0) throw new ArithmeticException("cannot divide by zero");
-                result = operand1 / operand2;
-                break;
-            default:
-                throw new IllegalArgumentException("incorrect operator: " + operator);
-        }
+                yield operand1 / operand2;
+            }
+        };
 
-        history.add(String.format("%f %c %f = %f", operand1, operator.getSymbol(), operand2, result));
+        history.add(String.format("%.2f %c %.2f = %.2f", operand1, operator.getSymbol(), operand2, result));
         return result;
     }
 }
