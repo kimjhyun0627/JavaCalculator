@@ -23,29 +23,29 @@ public class CalculatorMainLv1 {
 
             switch (operator) {
                 case '+':
-                    System.out.println("result : " + (num1 + num2));
+                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 + num2));
                     break;
                 case '-':
-                    System.out.println("result : " + (num1 - num2));
+                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 - num2));
                     break;
                 case '*':
-                    System.out.println("result : " + (num1 * num2));
+                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 * num2));
                     break;
                 case '/':
                     if (num2 == 0) {
-                        System.out.println("divide by zero");
+                        System.err.println("divide by zero");
                         break;
                     }
-                    System.out.println("result : " + (num1 / num2));
+                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 / num2));
                     break;
                 default:
-                    System.out.println("incorrect operator" + operator);
+                    System.err.println("incorrect operator" + operator);
             }
 
             System.out.println("if you want to continue, input any key");
-            System.out.print("if you want to exit, input 'q': ");
+            System.out.print("if you want to exit, input 'exit': ");
             String input = bf.readLine();
-            if (input.equals("q")) {
+            if (input.equals("exit")) {
                 cont = false;
             }
 
