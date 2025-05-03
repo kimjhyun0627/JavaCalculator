@@ -40,4 +40,14 @@ public class CalculatorLv3<T extends Number> {
         history.add(String.format("%.2f %c %.2f = %.2f", operand1, operator.getSymbol(), operand2, result));
         return result;
     }
+
+    public List<Double> getResultsGreaterThan(double value) {
+        return history.stream()
+                .map(entry -> {
+                    return Double.parseDouble(entry.split("=")[1].trim());
+                })
+                .filter(result -> result > value)
+                .toList();
+    }
+
 }

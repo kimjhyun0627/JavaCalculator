@@ -34,9 +34,9 @@ public class CalculatorMainLv3 {
             }
             System.out.println("hist " + MAX_MEMORY + ": " + calculatorLv3.getHistory());
 
-
             System.out.println("if you want to continue:: input any key");
             System.out.println("if you want to clear & continue:: input 'clear'");
+            System.out.println("if you want to get results greater than x:: input 'x'");
             System.out.print("if you want to exit:: input 'exit': ");
 
             String input = bf.readLine();
@@ -44,7 +44,12 @@ public class CalculatorMainLv3 {
                 cont = false;
             }
             if (input.equals("clear")) {
-                calculatorLv3.setHistory(new ArrayList<>());
+                calculatorLv3.setHistory(new ArrayList<String>());
+            }
+            try {
+                int x = Integer.parseInt(input);
+                calculatorLv3.getResultsGreaterThan(x).forEach(System.out::println);
+            } catch (NumberFormatException ignored) {
             }
 
         } while (cont);
