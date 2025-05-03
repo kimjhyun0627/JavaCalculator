@@ -21,27 +21,29 @@ public class CalculatorMainLv1 {
             System.out.print("second number : ");
             int num2 = Integer.parseInt(bf.readLine());
 
+            int result = 0;
             switch (operator) {
                 case '+':
-                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 + num2));
+                    result = num1 + num2;
                     break;
                 case '-':
-                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 - num2));
+                    result = num1 - num2;
                     break;
                 case '*':
-                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 * num2));
+                    result = num1 * num2;
                     break;
                 case '/':
                     if (num2 == 0) {
-                        System.err.println("divide by zero");
+                        System.err.println("cannot divide by zero");
                         break;
                     }
-                    System.out.printf("%d %c %d = %d%n", num1, operator, num2, (num1 / num2));
+                    result = num1 / num2;
                     break;
                 default:
-                    System.err.println("incorrect operator" + operator);
+                    System.err.println("incorrect operator: " + operator);
             }
 
+            System.out.printf("%d %c %d = %d%n", num1, operator, num2, result);
             System.out.println("if you want to continue, input any key");
             System.out.print("if you want to exit, input 'exit': ");
             String input = bf.readLine();
