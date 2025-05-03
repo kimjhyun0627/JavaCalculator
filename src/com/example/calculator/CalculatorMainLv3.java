@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class CalculatorMainLv2 {
+public class CalculatorMainLv3 {
+
     public static void main(String[] args) throws IOException {
         final int MAX_MEMORY = 3;
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -13,7 +14,7 @@ public class CalculatorMainLv2 {
         System.out.println("MAX_MEMORY: " + MAX_MEMORY);
 
 
-        CalculatorLv2 calculatorLv2 = new CalculatorLv2();
+        CalculatorLv3 calculatorLv3 = new CalculatorLv3();
         boolean cont = true;
         do {
             System.out.print("fist number : ");
@@ -26,12 +27,12 @@ public class CalculatorMainLv2 {
             int num2 = Integer.parseInt(bf.readLine());
 
 
-            System.out.printf("%d %c %d = %d%n", num1, operator, num2, calculatorLv2.calculate(num1, num2, operator));
+            System.out.printf("%d %c %d = %d%n", num1, operator, num2, calculatorLv3.calculate(num1, num2, operator));
 
-            if (calculatorLv2.getHistory().size() > MAX_MEMORY) {
-                calculatorLv2.popHistory();
+            if (calculatorLv3.getHistory().size() > MAX_MEMORY) {
+                calculatorLv3.popHistory();
             }
-            System.out.println("hist " + MAX_MEMORY + ": " + calculatorLv2.getHistory());
+            System.out.println("hist " + MAX_MEMORY + ": " + calculatorLv3.getHistory());
 
 
             System.out.println("if you want to continue:: input any key");
@@ -43,7 +44,7 @@ public class CalculatorMainLv2 {
                 cont = false;
             }
             if (input.equals("clear")) {
-                calculatorLv2.setHistory(new ArrayList<>());
+                calculatorLv3.setHistory(new ArrayList<>());
             }
 
         } while (cont);
