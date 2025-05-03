@@ -39,7 +39,7 @@ public class CalculatorMainLv1 {
                     System.out.println("result : " + (num1 / num2));
                     break;
                 default:
-                    System.out.println("incorrect operator");
+                    System.out.println("incorrect operator" + operator);
             }
 
             System.out.println("if you want to continue, input any key");
