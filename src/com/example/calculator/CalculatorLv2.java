@@ -2,11 +2,11 @@ package com.example.calculator;
 
 import java.util.*;
 
-public class Calculator {
+public class CalculatorLv2 {
 
     private List<String> history;
 
-    public Calculator() {
+    public CalculatorLv2() {
         this.history = new ArrayList<>();
     }
 
@@ -37,7 +37,7 @@ public class Calculator {
                 break;
             case '/':
                 if (num2 == 0) {
-                    throw new ArithmeticException("cannot divide by zero: ");
+                    throw new ArithmeticException("cannot divide by zero");
                 }
                 result = num1 / num2;
                 break;
@@ -45,8 +45,7 @@ public class Calculator {
                 throw new IllegalArgumentException("incorrect operator: " + operator);
         }
 
-        String record = String.format("%d %c %d = %d", num1, operator, num2, result);
-        history.add(record);
+        history.add(String.format("%d %c %d = %d", num1, operator, num2, result));
 
         return result;
     }
