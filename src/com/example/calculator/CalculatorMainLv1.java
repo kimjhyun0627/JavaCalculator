@@ -8,11 +8,11 @@ import java.io.IOException;
 public class CalculatorMainLv1 {
 
     public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)); //선언
         System.out.println("----- Calculator Lv1 -----");
 
         boolean cont = true;
         do {
-            BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)); //선언
 
             System.out.print("fist number : ");
             int num1 = Integer.parseInt(bf.readLine());
