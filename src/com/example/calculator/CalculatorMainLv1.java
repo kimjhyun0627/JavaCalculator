@@ -35,12 +35,14 @@ public class CalculatorMainLv1 {
                 case '/':
                     if (num2 == 0) {
                         System.err.println("cannot divide by zero");
+//                        throw new ArithmeticException("cannot divide by zero");
                         break;
                     }
                     result = num1 / num2;
                     break;
                 default:
                     System.err.println("incorrect operator: " + operator);
+//                    throw new IllegalArgumentException("incorrect operator: " + operator);
             }
 
             System.out.printf("%d %c %d = %d%n", num1, operator, num2, result);
